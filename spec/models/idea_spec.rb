@@ -4,7 +4,7 @@ describe Idea do
   describe "validations" do
     describe "invalid attributes" do
       it "is invalid without content" do
-        user = User.create!(name: "name", email: "email@email.com", password: "password")
+        user = User.create!(username: "username", email: "email@email.com", password: "password")
         idea = Idea.new(user_id: user.id)
 
         expect(idea).to_not be_valid
@@ -18,8 +18,8 @@ describe Idea do
     end
 
     describe "valid attributes" do
-      it "is valid with name and user_id" do
-        user = User.create!(name: "name", email: "email@email.com", password: "password")
+      it "is valid with username and user_id" do
+        user = User.create!(username: "username", email: "email@email.com", password: "password")
         idea = Idea.new(content: "content", user_id: user.id)
 
         expect(idea).to be_valid
@@ -29,7 +29,7 @@ describe Idea do
 
   describe "relationships" do
     it "belongs to a user" do
-      user = User.create!(name: "name", email: "email@email.com", password: "password")
+      user = User.create!(username: "username", email: "email@email.com", password: "password")
       idea = Idea.new(content: "content", user_id: user.id)
 
       expect(idea).to respond_to(:user)

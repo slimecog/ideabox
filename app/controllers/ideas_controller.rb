@@ -21,6 +21,10 @@ class IdeasController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:user_id])
+    @idea = Idea.find(params[:id])
+  end
 
   def edit
     @idea = Idea.find(params[:id])
