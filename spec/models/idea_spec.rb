@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe Idea, type: :model do
+describe Idea do
   describe "validations" do
     describe "invalid attributes" do
       it "is invalid without content" do
@@ -25,14 +25,14 @@ describe Idea, type: :model do
         expect(idea).to be_valid
       end
     end
+  end
 
-    describe "relationships" do
-      it "belongs to a user" do
-        user = User.create!(name: "name", email: "email@email.com", password: "password")
-        idea = Idea.new(content: "content", user_id: user.id)
+  describe "relationships" do
+    it "belongs to a user" do
+      user = User.create!(name: "name", email: "email@email.com", password: "password")
+      idea = Idea.new(content: "content", user_id: user.id)
 
-        expect(idea).to respond_to(:user)
-      end
+      expect(idea).to respond_to(:user)
     end
   end
 end
