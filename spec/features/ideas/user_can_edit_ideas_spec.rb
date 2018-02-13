@@ -2,8 +2,8 @@ require "rails_helper"
 
 describe "as a logged in user" do
   describe "when i visit my ideas page" do
-    describe "and click on an idea title" do
-      it "there is a link to edit (and it works)" do
+    describe "and click on edit by an idea" do
+      it "i am able to edit an idea" do
         user = User.create!(username: "name", password: "test")
         idea1 = Idea.create!(title: "title 1", content: "content 1", user: user)
         idea2 = Idea.create!(title: "title 2", content: "content 2", user: user)
@@ -38,7 +38,6 @@ describe "as a logged in user" do
         expect(page).to_not have_content(idea1.content)
         expect(page).to have_content(idea2.title)
         expect(page).to have_content(idea2.content)
-
       end
     end
   end

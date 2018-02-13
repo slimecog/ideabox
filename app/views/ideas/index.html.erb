@@ -3,6 +3,7 @@
     <li><%= idea.title %></li>
     <li><%= idea.content %></li>
     <%= link_to "Edit", edit_idea_path(idea) %>
+    <%= link_to "Delete", idea_path(idea), method: :delete %>
 </ul>
 <% end %>
 
