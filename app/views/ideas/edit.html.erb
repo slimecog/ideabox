@@ -1,2 +1,7 @@
-<h1>Ideas#edit</h1>
-<p>Find me in app/views/ideas/edit.html.erb</p>
+<%= form_for @idea do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>

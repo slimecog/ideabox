@@ -1,7 +1,8 @@
 <% @ideas.each do |idea| %>
-<ul>
+<ul class="idea_<%= idea.id %>">
     <li><%= idea.title %></li>
     <li><%= idea.content %></li>
+    <%= link_to "Edit", edit_idea_path(idea) %>
 </ul>
 <% end %>
 

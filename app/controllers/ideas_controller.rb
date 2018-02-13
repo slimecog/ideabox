@@ -28,7 +28,6 @@ class IdeasController < ApplicationController
   end
 
   def update
-    @idea = Idea.find(params[:user_id])
     @idea.update(idea_params)
     if @idea.save
       flash[:success] = "#{@idea.title} was Updated."
