@@ -1,4 +1,5 @@
 class Idea < ApplicationRecord
-  validates_presence_of :content
+  validates_presence_of :title,
+                        :content
   belongs_to :user
 end
