@@ -25,7 +25,6 @@ describe "as a logged in user" do
         expect(page).to have_content(idea2.content)
         expect(page).to_not have_content(idea1.title)
         expect(page).to_not have_content(idea1.content)
-
       end
     end
   end

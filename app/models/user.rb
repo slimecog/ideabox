@@ -4,4 +4,6 @@ class User < ApplicationRecord
                           :password
   validates_uniqueness_of :username
   has_many :ideas
+
+  enum role: %w(default admin)
 end
