@@ -5,10 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create!(username: "user1", password: "password1")
+User.create!(username: "user", password: "password")
+User.create!(username: "cam", password: "pass", role: 1)
 
-Idea.create!(title: "title1", content: "idea 1", user_id: 1)
-Idea.create!(title: "title2", content: "idea 2", user_id: 1)
+Idea.create!(title: "title1", content: "idea 1", user_id: 2)
+Idea.create!(title: "title2", content: "idea 2", user_id: 2)
 Idea.create!(title: "title3", content: "idea 3", user_id: 1)
 Idea.create!(title: "title4", content: "idea 4", user_id: 1)
 Idea.create!(title: "title5", content: "idea 5", user_id: 1)
