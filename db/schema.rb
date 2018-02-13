@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20180212203914) do
   enable_extension "plpgsql"
 
   create_table "ideas", force: :cascade do |t|
+    t.string "title"
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -24,8 +25,7 @@ ActiveRecord::Schema.define(version: 20180212203914) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+    t.string "username"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
