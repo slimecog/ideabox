@@ -14,7 +14,7 @@ describe "as a logged in user" do
         click_on "Log In"
 
         visit user_ideas_path(user)
-save_and_open_page
+
         expect(page).to have_content(idea1.title)
         expect(page).to have_content(idea2.title)
     end

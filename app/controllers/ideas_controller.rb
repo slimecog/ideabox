@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  # before_action :require_user
+  before_action :require_user
   before_action :which_user
   before_action :which_idea, only: [:show, :edit, :update, :destroy]
   def index
@@ -15,7 +15,7 @@ class IdeasController < ApplicationController
     @idea.user_id = @user.id
     if @idea.save
       flash[:success] = "Idea Saved"
-      redirect_to user_path(@idea.user)
+      redirect_to idea_path(@idea)
     else
       render :new
     end
