@@ -5,8 +5,9 @@ describe "as a logged in user" do
     describe "and click delete by an idea" do
       it "deletes the dang thing" do
         user = User.create!(username: "name", password: "test")
-        idea1 = Idea.create!(title: "title 1", content: "content 1", user: user)
-        idea2 = Idea.create!(title: "title 2", content: "content 2", user: user)
+        category = Category.create!(title: "cat1")
+        idea1 = Idea.create!(title: "title 1", content: "content 1", user: user, category: category)
+        idea2 = Idea.create!(title: "title 2", content: "content 2", user: user, category: category)
         visit '/'
         click_on "Have an account?"
         fill_in "username", with: user.username

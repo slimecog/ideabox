@@ -1,22 +1,24 @@
 class IdeasController < ApplicationController
   before_action :require_user
-  before_action :which_user
+  before_action :which_user, except: [:create]
   before_action :which_idea, only: [:show, :edit, :update, :destroy]
   def index
     @ideas = @user.ideas
   end
 
   def new
-    @idea = Idea.new
+    @categories = Category.all
+    @idea = @user.ideas.new
   end
 
   def create
+    @user = User.find(params[:user_id])
     @idea = @user.ideas.new(idea_params)
-    @idea.user_id = @user.id
     if @idea.save
       flash[:success] = "Idea Saved"
-      redirect_to idea_path(@idea)
+      redirect_to user_ideas_path
     else
+      flash[:error] = "Something went wrong."
       render :new
     end
   end
@@ -46,7 +48,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:title, :content)
+    params.require(:idea).permit(:title, :content, :user, :category_id)
   end
 
   def which_user

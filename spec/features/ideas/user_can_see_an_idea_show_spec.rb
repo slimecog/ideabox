@@ -4,6 +4,7 @@ describe "as a logged in user" do
   describe "when they visit their ideas page" do
     it "they can click a link to create a new idea" do
       user = User.create!(username: "name", password: "test")
+      category = Category.create!(title: "cat1")
 
       visit '/'
       click_on "Have an account?"
@@ -21,9 +22,10 @@ describe "as a logged in user" do
 
       fill_in "idea[title]", with: "title 1"
       fill_in "idea[content]", with: "content 1"
+      select "cat1", from: "idea[category_id]"
       click_on "Create Idea"
 
-      expect(current_path).to eq(idea_path(user.ideas.last))
+      expect(current_path).to eq(user_ideas_path(user))
       expect(page).to have_content(user.ideas.last.title)
       expect(page).to have_content(user.ideas.last.content)
     end
