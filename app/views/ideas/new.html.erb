@@ -3,5 +3,7 @@
   <%= f.text_field :title %>
   <%= f.label :content %>
   <%= f.text_area :content %>
+  <%= f.label :category_id %>
+  <%= f.collection_select(:category_id, Category.order(:title), :id, :title) %>
   <%= f.submit %>
 <% end %>

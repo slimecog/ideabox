@@ -4,8 +4,9 @@ describe "as a logged in user" do
   describe "when they visit their ideas page" do
     it "they can see all their ideas" do
         user = User.create!(username: "name", password: "test")
-        idea1 = Idea.create!(title: "title 1", content: "content 1", user: user)
-        idea2 = Idea.create!(title: "title 2", content: "content 2", user: user)
+        category = Category.create!(title: "cat1")
+        idea1 = Idea.create!(title: "title 1", content: "content 1", user: user, category: category)
+        idea2 = Idea.create!(title: "title 2", content: "content 2", user: user, category: category)
 
         visit '/'
         click_on "Have an account?"
