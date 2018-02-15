@@ -2,10 +2,12 @@ class Admin::ImagesController < Admin::BaseController
 
   def index
     @images = Image.all
+    @user = current_user
   end
 
   def new
     @image = Image.new
+    @user = current_user
   end
 
   def create
