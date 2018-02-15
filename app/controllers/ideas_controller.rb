@@ -45,6 +45,7 @@ class IdeasController < ApplicationController
   end
 
   def destroy
+    @idea.images.destroy_all
     @idea.destroy
     flash[:success] = "Idea Deleted"
     redirect_to user_ideas_path(current_user)

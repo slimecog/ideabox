@@ -33,13 +33,15 @@
     <h4></h4>
     <hr>
     <h2>All Images</h2>
-    <p></p>
+    <p>Click links to right of an image to Edit or Delete it.</p>
     <br><br>
   </div>
 
   <div class="image-index">
     <% @images.each do |image| %>
       <img src="<%= image.url %>" width='300'>
+      <%= link_to "Edit", edit_admin_image_path(image) %>
+      <%= link_to "Delete", admin_image_path(image), method: :delete %>
     <% end %>
   </div>
 

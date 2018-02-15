@@ -25,6 +25,22 @@ class Admin::CategoriesController < Admin::BaseController
     @user = current_user
   end
 
+  def edit
+    @category = Category.find(params[:id])
+    @user = current_user
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+      flash[:success] = "#{@category.title} successfully Updated."
+      redirect_to admin_category_path(@category)
+    else
+      flash[:error] = "Something went wrong. Try again?"
+      render :edit
+    end
+  end
+
   def destroy
     @category = Category.find(params[:id])
     if @category.destroy

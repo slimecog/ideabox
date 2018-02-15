@@ -9,11 +9,19 @@
   </head>
 
   <body>
-    <div class="flashes">
-      <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: name %>
-      <% end %>
-    </div>
+    <% if flash.keys.first == "success" %>
+      <div class="flash-success">
+        <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: name %>
+        <% end %>
+      </div>
+    <% elsif flash.keys.first == "error" %>
+      <div class="flash-error">
+        <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: name %>
+        <% end %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
