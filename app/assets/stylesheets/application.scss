@@ -13,7 +13,7 @@
 
  */
  /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-$floral-white: #FFFCF2;
+$light-grey: #ecedef;
 $gunmetal: #273043;
 $toolbox-blue: #717EC3;
 $mauvelous: #ED95A5;
@@ -22,8 +22,8 @@ $star-blue: #327ab7;
 
  .row.content {
    height: 1500px;
-   background-image: url("https://research.rpi.edu/sites/default/files/styles/front_page/public/banner-IDEA.jpg?itok=9zGzrBlk");
    background-repeat: no-repeat;
+   background-color: $light-grey;
  }
 
  /* Set gray background color and 100% height */
@@ -35,13 +35,22 @@ $star-blue: #327ab7;
 
  .col-sm-9 {
    background-color: $star-blue;
+   color: white;
  }
 
+ .body-image {
+   background-repeat: no-repeat;
+   background-position: bottom;
+ }
+
+ .flashes {
+   background-color: $mauvelous
+ }
 
  /* Set black background color, white text and some padding */
  footer {
    background-color: $star-blue;
-   border-top: 3px solid $floral-white;
+   border-top: 3px solid $light-grey;
    color: white;
    padding: 15px;
    position: fixed;
@@ -49,6 +58,20 @@ $star-blue: #327ab7;
    left: 0;
    bottom: 0;
  }
+
+.forms {
+  margin-top: 12.5em;
+  margin-left: 30em
+}
+
+.image-index {
+  margin-top: 12.5em;
+  margin-left: 30em;
+}
+
+img {
+  padding: 15px
+}
 
  /* On small screens, set height to 'auto' for sidenav and grid */
  @media screen and (max-width: 767px) {

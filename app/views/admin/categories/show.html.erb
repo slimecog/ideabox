@@ -1,5 +1,54 @@
-All Ideas for <%= @category.title %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>IdeaBox</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-<% @category.ideas.each do |idea| %>
-  <ul><%= link_to idea.title, idea_path(idea) %></ul>
-<% end %>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <h4>IdeaBox</h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><%= link_to "Home", user_path(@user) %></li>
+        <li><%= link_to "Categories", admin_categories_path if current_user.admin? %></li>
+        <li><%= link_to "Images", admin_images_path if current_user.admin? %></li>
+        <li><%= link_to "My Ideas", user_ideas_path(@user) %></li>
+        <li><%= link_to "Create a new Idea", new_user_idea_path(@user) %></li>
+        <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+      </ul><br>
+      <div class="input-group">
+          </button>
+        </span>
+      </div>
+    </div>
+
+  <div class="col-sm-9">
+    <h4></h4>
+    <hr>
+    <h2>All Ideas for <%= @category.title %></h2>
+    <p></p>
+    <br><br>
+  </div>
+
+  <div class="forms">
+    <% @category.ideas.each do |idea| %>
+      <ul><%= link_to idea.title, idea_path(idea) %></ul>
+    <% end %>
+  </div>
+
+  <div class="body-image">
+    <!-- <img src="https://research.rpi.edu/sites/default/files/styles/front_page/public/banner-IDEA.jpg?itok=9zGzrBlk" alt=""> -->
+  </div>
+
+<footer class="container-fluid">
+  <p>© 2018 Cameron Johnson</p>
+</footer>
+
+</body>
+</html>

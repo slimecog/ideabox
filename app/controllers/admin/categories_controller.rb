@@ -1,10 +1,12 @@
 class Admin::CategoriesController < Admin::BaseController
   def index
     @categories = Category.all
+    @user = current_user
   end
 
   def new
     @category = Category.new
+    @user = current_user
   end
 
   def create
@@ -20,6 +22,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def show
     @category = Category.find(params[:id])
+    @user = current_user
   end
 
   def destroy
