@@ -43,7 +43,14 @@
       <%= f.text_area :content %>
       <%= f.label :category_id %>
       <%= f.collection_select(:category_id, Category.order(:title), :id, :title) %>
-      <%= f.submit %>
+      <%= f.label :images %>
+      <div class="image-select" >
+        <% Image.all.each do |image| %>
+          <%= check_box_tag "images[]", image.id %>
+          <%= image_tag image.url, html: { width: '20px' } %>
+        <% end %>
+        <%= f.submit %>
+      </div>
     <% end %>
   </div>
 

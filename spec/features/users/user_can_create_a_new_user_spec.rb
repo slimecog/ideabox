@@ -4,7 +4,7 @@ describe "when a user visits root" do
   it "they can sign up for an account" do
     visit "/"
 
-    click_on "Sign Up"
+    click_on "Sign up"
 
     expect(current_path).to eq(new_user_path)
 

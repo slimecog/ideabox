@@ -39,7 +39,7 @@
   <div class="forms">
     <% @ideas.each do |idea| %>
     <ul class="idea_<%= idea.id %>">
-        <li><%= idea.title %></li>
+        <li><%= link_to idea.title, idea_path(idea) %></li>
         <li><%= idea.content %></li>
         <%= link_to "Edit", edit_idea_path(idea) %>
         <%= link_to "Delete", idea_path(idea), method: :delete %>
