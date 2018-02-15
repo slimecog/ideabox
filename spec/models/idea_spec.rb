@@ -52,6 +52,11 @@ describe Idea do
       idea = Idea.new(title: "title", content: "content", user_id: user.id, category: category)
 
       expect(idea).to respond_to(:user)
+      expect(idea).to respond_to(:category)
+    end
+
+    describe "one more validation but with should matchers this time" do
+      it { should have_many(:images).through(:idea_images) }
     end
   end
 end
