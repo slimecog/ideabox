@@ -1,3 +1,7 @@
+<h2>All Images</h2>
+<%= link_to "Add a new Image", new_admin_image_path %>
+
+
 <% @images.each do |image| %>
   <img src="<%= image.url %>">
 <% end %>
