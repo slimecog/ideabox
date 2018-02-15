@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: ideabox_production
+  database: ideabox_production.sqlite3
+  adapter: postgresql
   username: ideabox
   password: <%= ENV['IDEABOX_DATABASE_PASSWORD'] %>
