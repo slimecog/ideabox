@@ -40,7 +40,7 @@
   <div class="forms">
     <ul>
       <% @categories.each do |category| %>
-        <li><%= link_to category.title, admin_category_path(category) %></li><br>
+        <li><%= link_to category.title, admin_category_path(category) %></li>
         <%= link_to "Edit", edit_admin_category_path(category) %>
         <%= link_to "Delete", admin_category_path(category), method: :delete %>
       <% end %>
